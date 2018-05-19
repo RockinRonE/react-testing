@@ -10,7 +10,7 @@ describe('App', () => {
   })
 
   it('renders the StackList', () => {
-    console.log(app.debug())
+    // console.log(app.debug())
     expect(app.find('Connect(StackList)').exists()).toBe(true)
   })
 
