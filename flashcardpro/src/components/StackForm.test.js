@@ -3,6 +3,10 @@ import { shallow } from 'enzyme'
 import { StackForm } from './StackForm'
 import { stack } from '../data/fixtures';
 
+const changeTitle = 'change title'
+const changePrompt = 'change prompt'
+const changeAnswer = 'change answer'
+
 describe('StackForm', () => {
   const stackForm = shallow(<StackForm />)
 
@@ -30,12 +34,12 @@ describe('StackForm', () => {
   describe('and updating the title', () => {
     // simulate button click with data
     beforeEach(() => {
-      stackForm.find('FormControl').simulate('change', { target: { value: 'change title' } })
+      stackForm.find('FormControl').simulate('change', { target: { value: changeTitle } })
     })
 
     it('updates the title in state', () => {
       // console.log(stackForm.state())
-      expect(stackForm.state().title).toEqual('change title')
+      expect(stackForm.state().title).toEqual(changeTitle)
     })
   })
 
@@ -64,23 +68,23 @@ describe('StackForm', () => {
     describe('and updating the card prompt', () => {
       beforeEach(() => {
         stackForm.find('FormControl').at(1)
-          .simulate('change', { target: { value: 'change prompt' } })
+          .simulate('change', { target: { value: changePrompt } })
       })
 
       it('updates the prompt in the state', () => {
         // console.log(stackForm.state())
-        expect(stackForm.state().cards[0].prompt).toEqual('change prompt')
+        expect(stackForm.state().cards[0].prompt).toEqual(changePrompt)
       })
     })
 
     describe('and updating the card answer', () => {
       beforeEach(() => {
         stackForm.find('FormControl').at(2)
-          .simulate('change', { target: { value: 'change answer' } })
+          .simulate('change', { target: { value: changeAnswer } })
       })
 
       it('updates the answer in the state', () => {
-        expect(stackForm.state().cards[0].answer).toEqual('change answer')
+        expect(stackForm.state().cards[0].answer).toEqual(changeAnswer)
       })
     })
   })
