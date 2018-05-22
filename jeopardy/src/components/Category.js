@@ -34,6 +34,7 @@ export class Category extends Component {
   }
 }
 
+// isolate the linking from category class so we don't have to give it Router context
 export class LinkedCategory extends Component {
   render() {
     return (
